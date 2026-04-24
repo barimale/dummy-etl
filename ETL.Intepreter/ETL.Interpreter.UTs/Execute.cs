@@ -21,6 +21,36 @@ namespace ETL.Interpreter.UTs
         }
 
         [Fact]
+        public void ExampleOfUsageWithMultiplication()
+        {
+            // given
+            var input = "(13+4)-(5*6)";
+
+            // when
+            var tokens = LexService.Lex(input);
+            var ast = ParseService.Parse(tokens);
+            var result = ast.Value;
+
+            // then
+            Assert.Equal(-13, result);
+        }
+
+        [Fact]
+        public void ExampleOfUsageWithMultiplication2()
+        {
+            // given
+            var input = "(13*4)/(52*1)";
+
+            // when
+            var tokens = LexService.Lex(input);
+            var ast = ParseService.Parse(tokens);
+            var result = ast.Value;
+
+            // then
+            Assert.Equal(1, result);
+        }
+
+        [Fact]
         public void ExampleOfIncorrectUsage()
         {
             // given

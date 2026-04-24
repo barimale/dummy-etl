@@ -24,6 +24,12 @@ namespace ETL.Intepreter
                     case ')':
                         result.Add(new Token (Token.Type.RParen, ")"));
                         break;
+                    case '*':
+                        result.Add(new Token(Token.Type.Multiply, "*"));
+                        break;
+                    case '/':
+                        result.Add(new Token(Token.Type.Divide, "/"));
+                        break;
                     default:
                         if (char.IsDigit(input[i]))
                         {

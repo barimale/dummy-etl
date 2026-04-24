@@ -20,7 +20,9 @@ namespace ETL.Intepreter.Model.Parse
                 var token = tokens[index];
 
                 if (token.MyType != Token.Type.Plus &&
-                    token.MyType != Token.Type.Minus)
+                    token.MyType != Token.Type.Minus &&
+                    token.MyType != Token.Type.Multiply &&
+                    token.MyType != Token.Type.Divide)
                     break;
 
                 index++; // consume operator
@@ -30,7 +32,11 @@ namespace ETL.Intepreter.Model.Parse
                     Left = left,
                     MyType = token.MyType == Token.Type.Plus
                         ? BinaryOperation.Type.Addition
-                        : BinaryOperation.Type.Substraction
+                        : token.MyType == Token.Type.Minus
+                            ? BinaryOperation.Type.Substraction
+                            : token.MyType == Token.Type.Multiply
+                                ? BinaryOperation.Type.Multiplication
+                                : BinaryOperation.Type.Division
                 };
 
                 var right = ParsePrimary(tokens, ref index);
@@ -50,7 +56,7 @@ namespace ETL.Intepreter.Model.Parse
             {
                 case Token.Type.Integer:
                     index++;
-                    return new Integer(int.Parse(token.Text));
+                    return new Double(int.Parse(token.Text));
 
                 case Token.Type.LParen:
                     index++; // consume '('

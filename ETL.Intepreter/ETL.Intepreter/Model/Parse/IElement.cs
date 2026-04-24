@@ -2,6 +2,6 @@
 {
     public interface IElement
     {
-        int Value { get; }
+        double Value { get; }
     }
 }

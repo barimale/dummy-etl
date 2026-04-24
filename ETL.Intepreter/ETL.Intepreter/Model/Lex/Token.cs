@@ -7,7 +7,7 @@
 
         public enum Type
         {
-            Integer, Plus, Minus, LParen, RParen
+            Integer, Plus, Minus, LParen, RParen, Multiply,Divide
         }
 
         public Token(Token.Type type, string text)

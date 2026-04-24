@@ -5,13 +5,15 @@
         public enum Type
         {
             Addition,
-            Substraction
+            Substraction,
+            Multiplication,
+            Division
         }
 
         public Type MyType;
         public IElement Left, Right;
 
-        public int Value
+        public double Value
         {
             get
             {
@@ -19,6 +21,8 @@
                 {
                     Type.Addition => Left.Value + Right.Value,
                     Type.Substraction => Left.Value - Right.Value,
+                    Type.Multiplication => Left.Value * Right.Value,
+                    Type.Division => Left.Value / Right.Value,
                     _ => throw new NotImplementedException()
                 };
             }
