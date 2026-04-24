@@ -19,5 +19,21 @@ namespace ETL.Interpreter.UTs
             // then
             Assert.Equal(6, result);
         }
+
+        [Fact]
+        public void ExampleOfIncorrectUsage()
+        {
+            // given
+            var input = "(13+4)-(5+6(";
+
+            // then
+            Assert.Throws<Exception>(() =>
+            {
+                // when
+                var tokens = LexService.Lex(input);
+                var ast = ParseService.Parse(tokens);
+                var result = ast.Value;
+            });
+        }
     }
 }
