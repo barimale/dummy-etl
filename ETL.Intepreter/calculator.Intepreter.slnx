@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="../.gitignore" />
+    <File Path="../README.md" />
+  </Folder>
+  <Project Path="ETL.Intepreter/Calculator.Intepreter.csproj" />
+  <Project Path="ETL.Interpreter.UTs/Calculator.Interpreter.UTs.csproj" />
+</Solution>
